@@ -2,12 +2,15 @@
     <head>
         <meta charset="utf-8">
         <title>Video Store</title>
-        <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
-        <link href="/stylesheets/simple-sidebar.css" rel="stylesheet">
-        <link href="/stylesheets/custom.css" rel="stylesheet">
-        <script src="/vendor/angular.min.js"></script>
-        <script src="/vendor/ng-file-upload-all.min.js"></script>
-        <script src="/javascripts/videoUpload.js"></script>
+        <link href="/lib/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/lib/css/simple-sidebar.css" rel="stylesheet">
+        <link href="/lib/css/custom.css" rel="stylesheet">
+        <script src="/lib/angular/angular.js"></script>
+        <script src="/lib/angular/angular-route.js"></script>
+        <script src="/lib/angular/ng-file-upload-all.min.js"></script>
+        <script src="/js/app.js"></script>
+        <script src="/js/factoryVideo.js"></script>
+        <script src="/js/videoUpload.js"></script>
     </head>
 
 <body ng-app="videoUpload">
@@ -37,17 +40,14 @@
                 <li class="active">
                     <a href="#">Gerenciar Vídeos</a>
                     <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                        <li><a href="#">Inserir Vídeo</a></li>
-                        <li><a href="#">Editar Vídeo</a></li>
-                        <li><a href="#">Deletar Vídeo</a></li>
+                        <li><a href="#/videoinsert">Inserir Vídeo</a></li>
                     </ul>
                 </li>
 
                 <li class="active">
                     <a href="#">Listar Vídeos</a>
                     <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                        <li><a href="#">Pesquisar Vídeo</a></li>
-                        <li><a href="#">Exibir Todos</a></li>
+                        <li><a href="#/videolist">Exibir Todos</a></li>
                     </ul>
                 </li>
             </ul>
@@ -57,51 +57,11 @@
         <!-- Page Content -->
         <div id="page-content-wrapper" ng-controller="videoUploadController">
             <div class="container-fluid xyz">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">Inserir Vídeo</h3>
-                  </div>
-                  <div class="panel-body">
-                    <form ng-submit="submit()">
-                    <input class="form-control" type="text" name="title" id="title" ng-model="upload.title" placeholder="Insira o Título do Vídeo" required/>
-                    <br/>
-                    <input class="form-control" type="text" name="author" id="author" ng-model="upload.author" placeholder="Insira o Autor do Vídeo" required/>
-                    <br/>
-                    <input class="form-control" type="text" name="description" id="description" ng-model="upload.description" placeholder="Insira a Descrição do Vídeo" />
-                    <br/>
-                    <span class="btn btn-danger btn-file btn-block">Procurar Arquivo
-                        <input type="file" name="file" id="file" ng-model="upload.file" ngf-accept="'.mp4'" ngf-select ngf-max-size="25MB" required/>
-                    </span>
-                    <input class="btn btn-primary btn-block" type="submit" value="Enviar Vídeo"/>
-                    </form>
-                  </div>
-                </div>
-
-
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">Vídeos Inseridos</h3>
-                  </div>
-                  <div class="panel-body">
-                    <input class="form-control" type="text" ng-model="searchVideo" placeholder="Insira o que deseja pesquisar"/><br/><br/>
-                    <table class="table">
-                        <tr>
-                            <th>Título</th>
-                            <th>Autor</th>
-                            <th>Descrição</th>
-                            <th>Inserido em</th>
-                            <th>Visualizar</th>
-                        </tr>
-                        <tr ng-repeat="video in videos | filter: searchVideo">
-                            <td>{{video.title}}</td>
-                            <td>{{video.author}}</td>
-                            <td>{{video.description}}</td>
-                            <td>{{video.created_at | date:'dd/MM/yyyy HH:mm'}}</td>
-                            <td><a ng-href='{{video.file.path + "/" + video.file.originalname}}'>Clique Aqui</a></td>
-                        </tr>
-                    </table>
-                  </div>
-                </div>
+                Editar
+                Apagar
+                Categorias
+                Filtro
+                <div ng-view></div>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
@@ -109,9 +69,9 @@
     </div>
     <!-- /#wrapper -->
     <!-- jQuery -->
-    <script src="js/jquery-1.11.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/sidebar_menu.js"></script>
+    <script src="/lib/javascripts/jquery-1.11.2.min.js"></script>
+    <script src="/lib/javascripts/bootstrap.min.js"></script>
+    <script src="/lib/javascripts/sidebar_menu.js"></script>
 </body>
 
 </html>

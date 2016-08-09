@@ -4,11 +4,8 @@
   "description": "Atividade Final do Trainee Web LAViD",
   "main": "app.js",
   "dependencies": {
-    "angular": "^1.5.8",
-    "angular-messages": "^1.5.8",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "gulp": "^3.9.1",
     "mongoose": "^4.5.8",
     "morgan": "^1.7.0",
     "multer": "^1.1.0",

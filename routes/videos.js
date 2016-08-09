@@ -20,20 +20,23 @@ router.get('/', function (req, res, next) {
 /**
  * Gets a file from the hard drive based on the unique ID and the filename
  */
+
 router.get('/:uuid/:filename', function (req, res, next) {
   console.log(req.params);
   Upload.findOne({
     'file.filename': req.params.uuid,
     'file.originalname': req.params.filename
   }, function (err, video) {
-
     if (err) next(err);
     else {
+      /*
       res.set({
         "Content-Disposition": 'inline; filename="' + video.file.originalname + '"',
         "Content-Type": video.file.mimetype
       });
       fs.createReadStream(video.file.path).pipe(res);
+      */
+      res.json(video);
     }
   });
 });
