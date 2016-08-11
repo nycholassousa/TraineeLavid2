@@ -8,12 +8,18 @@
     </div>
     <div class="col-md-6">
         <ul class="list-group">
-          <li class="list-group-item">Descrição: <br> {{video.description}}</li>
-          <li class="list-group-item">Autor: <br> {{video.author}}</li>
-          <li class="list-group-item">Criado em: <br> {{video.created_at | date:'dd/MM/yyyy HH:mm'}}</li>
+          <li class="list-group-item">Descrição: <br>
+          {{video.description}}</li>
+          <li class="list-group-item">Autor: <br>
+          {{video.author}}</li>
+          <li class="list-group-item">Criado em: <br>
+          {{video.created_at | date:'dd/MM/yyyy HH:mm'}}</li>
             <div class="pull-right">
-                <a class="btn btn-primary" href="#/videolist" ng-click="">Editar Video</a>
-                <a class="btn btn-danger" href="#" ng-click="removeVideo(video._id)">Deletar Video</a>
+                <hr>
+                <a class="btn btn-primary" href="#/edit" ng-click="getVideo(video)">
+                Editar Video</a>
+                <a class="btn btn-danger" href="#" ng-click="removeVideo(video._id)">
+                Deletar Video</a>
             </div>
         </ul>
     </div>

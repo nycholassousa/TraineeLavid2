@@ -39,17 +39,6 @@ router.get('/:uuid/:filename', function (req, res, next) {
   });
 });
 
-router.delete('/:id', function (req, res, next) {
-  Upload.findOne({'_id': req.params.id }, function (err, video) {
-    if (err) next(err);
-    else {
-      console.log(video);
-      video.remove();
-      res.json({item: video});
-    }
-  });
-});
-
 /**
  * Gets a file from the hard drive based on the video._ID
  */
@@ -62,6 +51,39 @@ router.get('/:id', function (req, res, next) {
       res.json(video);
     }
   });
+});
+
+/**
+ * Delete video
+ */
+router.delete('/:id', function (req, res, next) {
+  Upload.findOne({'_id': req.params.id }, function (err, video) {
+    if (err) next(err);
+    else {
+      console.log(video);
+      video.remove();
+      res.json({item: video});
+    }
+  });
+});
+
+/**
+ * Update video
+ */
+router.put('/:id', function(req, res) {
+    var videoInfo = req.body;
+    var id = req.params.id;
+    console.log(videoInfo);
+
+    Upload.update(
+        {_id: id },
+        videoInfo,
+        { upsert: true},
+        function(err, video) {
+            if (err) res.send(err);
+            res.json(video);
+    });
+
 });
 
 /**

@@ -1,23 +1,22 @@
 angular.module("videoUpload").
-controller('videoUploadController', ['$http', 'Upload', '$scope', '$state', 'videoFactory',
-  '$route', function($http, Upload, $scope, $state, videoFactory, $route){
+controller('videoUploadController', ['$http', 'Upload', '$scope', '$state',
+  'videoFactory', '$route', function($http, Upload, $scope, $state,
+    videoFactory, $route){
+
+  $scope.insertVideo = function(){
+    $scope.formFactory = videoFactory.insertData($scope, $http, Upload);
+  };
 
   $scope.getVideosList = function(){
     $http.get('/public/videos').then(function(response){
     console.log(response.data);
     $scope.videos = response.data;
     });
-  }
-
-  $scope.insertVideo = function(){
-    $scope.formFactory = videoFactory.insertData($scope, $http, Upload);
   };
 
   $scope.getVideo = function(video) {
     $scope.video = video;
     $scope.url = video.file.path + "/" + video.file.originalname;
-    //{{video.file.path + "/" + video.file.originalname}}
-    //$state.go('detail');
   };
 
   $scope.removeVideo = function(id){
@@ -26,6 +25,12 @@ controller('videoUploadController', ['$http', 'Upload', '$scope', '$state', 'vid
       window.location.href='#/videolist';
       return $route.reload();
     });
-  }
+  };
 
+  $scope.updateVideo = function(video) {
+      $http.put('/public/videos/' + video._id, video).success( function(response){
+      window.location.href='#/videolist';
+      return $route.reload();
+      });
+  };
 }]);

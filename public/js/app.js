@@ -7,6 +7,10 @@ angular.module("videoUpload").config(function ($routeProvider) {
     $routeProvider.when("/detail", {
         templateUrl: "/views/videodetail.html",
     });
+    $routeProvider.when("/edit", {
+        templateUrl: "/views/editvideo.html",
+        controller: "videoUploadController",
+    });
 	$routeProvider.when("/videoinsert", {
 		templateUrl: "/views/videoinsert.html",
 		controller: "videoUploadController",

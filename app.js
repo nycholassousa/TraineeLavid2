@@ -24,7 +24,7 @@ MongoDB.once('open', function () {
 });
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // set up routes
 app.use(express.static('public'));
