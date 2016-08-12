@@ -18,4 +18,5 @@ angular.module("videoUpload").config(function ($routeProvider) {
 		templateUrl: "/views/videoinsert.html",
 		controller: "videoUploadController",
 	});
+    $routeProvider.otherwise({redirectTo: '/'});
 });

@@ -5,9 +5,7 @@ var Upload = require('../models/video');
 var multer = require('multer');
 var video = multer({dest: 'public/videos/'});
 
-/**
- * Gets the list of all files from the database
- */
+//GET para listar todos os arquivos/dados do banco de dados
 router.get('/', function (req, res, next) {
   //console.log(req.params);
   Upload.find({},  function (err, videos) {
@@ -18,9 +16,7 @@ router.get('/', function (req, res, next) {
   });
 });
 
-/**
- * Gets a file from the hard drive based on the unique ID and the filename
- */
+//GET para um arquivo específico para tocar no player
 router.get('/:uuid/:filename', function (req, res, next) {
   //console.log(req.params);
   Upload.findOne({
@@ -39,9 +35,7 @@ router.get('/:uuid/:filename', function (req, res, next) {
   });
 });
 
-/**
- * Gets a file from the hard drive based on the video._ID
- */
+//GET usando apenas o ID, usado para mostrar mais detalhes do vídeo
 router.get('/:id', function (req, res, next) {
   Upload.findOne({
     '_id': id
@@ -53,9 +47,7 @@ router.get('/:id', function (req, res, next) {
   });
 });
 
-/**
- * Delete video
- */
+//DELETE vídeo baseado no ID
 router.delete('/:id', function (req, res, next) {
   Upload.findOne({'_id': req.params.id }, function (err, video) {
     if (err) next(err);
@@ -67,9 +59,7 @@ router.delete('/:id', function (req, res, next) {
   });
 });
 
-/**
- * Update video
- */
+//PUT vídeo baseado em seu ID
 router.put('/:id', function(req, res) {
     var videoInfo = req.body;
     var id = req.params.id;
@@ -86,9 +76,7 @@ router.put('/:id', function(req, res) {
 
 });
 
-/**
- * Create's the file in the database
- */
+//POST para criação de vídeo
 router.post('/', video.single('file'), function (req, res, next) {
   //console.log(req.body);
   //console.log(req.file);

@@ -8,7 +8,7 @@ var videos = require('./routes/videos');
 
 var app = express();
 
-var mongoURI = "mongodb://localhost:27017/myvideoportal3"; // replace with your mongodb url
+var mongoURI = "mongodb://localhost:27017/myvideoportal3";
 
 var MongoDB = mongoose.connect(mongoURI).connection;
 MongoDB.on('error', function (err) {

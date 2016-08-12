@@ -17,11 +17,12 @@
       </div>
     <input class="form-control" type="text" name="author" id="author" ng-model="upload.author" placeholder="Insira o Autor do Vídeo" required/>
     <br/>
-    <input class="form-control" type="text" name="description" id="description" ng-model="upload.description" placeholder="Insira a Descrição do Vídeo" />
+    <input class="form-control" type="text" name="description" id="description" ng-model="upload.description" placeholder="Insira uma Simples Descrição do Vídeo" />
     <br/>
     <span class="btn btn-danger btn-file btn-block">Procurar Arquivo
         <input type="file" name="file" id="file" ng-model="upload.file" ngf-accept="'.mp4'" ngf-select ngf-max-size="25MB" required/>
     </span>
+    <hr>
     <input class="btn btn-primary btn-block" type="submit" value="Enviar Vídeo"/>
     </form>
   </div>
