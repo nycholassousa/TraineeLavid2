@@ -9,6 +9,10 @@ var videoSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  category: {
+    type: String,
+    required: true
+  },
   description: String,
   created_at: Date,
   file: Object

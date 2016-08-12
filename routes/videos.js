@@ -60,7 +60,7 @@ router.delete('/:id', function (req, res, next) {
   Upload.findOne({'_id': req.params.id }, function (err, video) {
     if (err) next(err);
     else {
-      console.log(video);
+      //console.log(video);
       video.remove();
       res.json({item: video});
     }
@@ -73,7 +73,7 @@ router.delete('/:id', function (req, res, next) {
 router.put('/:id', function(req, res) {
     var videoInfo = req.body;
     var id = req.params.id;
-    console.log(videoInfo);
+    //console.log(videoInfo);
 
     Upload.update(
         {_id: id },
@@ -94,6 +94,7 @@ router.post('/', video.single('file'), function (req, res, next) {
   //console.log(req.file);
   var newUpload = {
     title: req.body.title,
+    category: req.body.category,
     author: req.body.author,
     description: req.body.description,
     created_at: Date.now(),

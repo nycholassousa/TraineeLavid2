@@ -1,6 +1,9 @@
 angular.module('videoUpload', ['ngFileUpload', 'ngRoute', 'ui.router']);
 
 angular.module("videoUpload").config(function ($routeProvider) {
+    $routeProvider.when("/", {
+        templateUrl: "/views/videolist.html",
+    });
 	$routeProvider.when("/videolist", {
         templateUrl: "/views/videolist.html",
     });

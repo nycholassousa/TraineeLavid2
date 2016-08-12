@@ -9,7 +9,17 @@
           <input type="text" class="form-control" name="title" id="title" ng-model="video.title" placeholder="{{video.title}}" required/>
         </div>
         <div class="form-group">
-          <label>Descrição</label>
+          <label>Nova Categoria</label>
+          <select ng-model="video.category" class="form-control" required>
+            <option value="">Selecione uma Categoria</option>
+            <option value="Educacional">Educacional</option>
+            <option value="Videoclipe">Videoclipe</option>
+            <option value="Filmes">Filmes</option>
+            <option value="Outros">Outros</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Nova Descrição</label>
           <input type="text" class="form-control" name="description" id="description" ng-model="video.description" placeholder="{{video.description}}" />
         </div>
         <input class="btn btn-primary" type="submit" value="Finalizar"/>

@@ -8,11 +8,13 @@
     </div>
     <div class="col-md-6">
         <ul class="list-group">
-          <li class="list-group-item">Descrição: <br>
+          <li class="list-group-item"><b>Categoria</b>: <br>
+          {{video.category}}</li>
+          <li class="list-group-item"><b>Descrição</b>: <br>
           {{video.description}}</li>
-          <li class="list-group-item">Autor: <br>
+          <li class="list-group-item"><b>Autor</b>: <br>
           {{video.author}}</li>
-          <li class="list-group-item">Criado em: <br>
+          <li class="list-group-item"><b>Criado em</b>: <br>
           {{video.created_at | date:'dd/MM/yyyy HH:mm'}}</li>
             <div class="pull-right">
                 <hr>

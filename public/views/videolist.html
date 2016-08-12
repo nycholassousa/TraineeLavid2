@@ -7,12 +7,14 @@
     <table class="table">
         <tr>
             <th>Título</th>
+            <th>Categoria</th>
             <th>Autor</th>
             <th>Inserido em</th>
             <th>Detalhes</th>
         </tr>
         <tr ng-repeat="video in videos | filter: searchVideo">
             <td>{{video.title}}</td>
+            <td>{{video.category}}</td>
             <td>{{video.author}}</td>
             <td>{{video.created_at | date:'dd/MM/yyyy HH:mm'}}</td>
             <td><a ng-click="getVideo(video)" href="#/detail">Clique Aqui</a></td>

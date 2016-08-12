@@ -6,6 +6,15 @@
     <form ng-submit="insertVideo()">
     <input class="form-control" type="text" name="title" id="title" ng-model="upload.title" placeholder="Insira o Título do Vídeo" required/>
     <br/>
+      <div class="form-group">
+        <select ng-model="upload.category" class="form-control" required>
+          <option value="">Selecione uma Categoria</option>
+          <option value="Educacional">Educacional</option>
+          <option value="Videoclipe">Videoclipe</option>
+          <option value="Filmes">Filmes</option>
+          <option value="Outros">Outros</option>
+        </select>
+      </div>
     <input class="form-control" type="text" name="author" id="author" ng-model="upload.author" placeholder="Insira o Autor do Vídeo" required/>
     <br/>
     <input class="form-control" type="text" name="description" id="description" ng-model="upload.description" placeholder="Insira a Descrição do Vídeo" />
